@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Secret Riddle</title>
+    <style>
+        body {
+            background: linear-gradient(120deg, #e0e7ff 0%, #f4f4fa 100%);
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .riddle-box {
+            max-width: 370px;
+            width: 100%;
+            margin: 30px auto;
+            background: #fff;
+            padding: 2rem 2rem 1.5rem 2rem;
+            border-radius: 1.3rem;
+            box-shadow: 0 4px 24px rgba(30,40,100,0.09);
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 1em;
+            color: #232946;
+            letter-spacing: 1px;
+        }
+        label {
+            font-size: 1.07em;
+            color: #4b5563;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 0.7em;
+            border-radius: 0.9em;
+            border: 1px solid #bbb;
+            margin-bottom: 1.1em;
+            font-size: 1em;
+            margin-top: 0.7em;
+            background: #f3f6fc;
+        }
+        button {
+            padding: 0.6em 1.5em;
+            border-radius: 1.2em;
+            background: #232946;
+            color: #fff;
+            border: none;
+            font-size: 1em;
+            cursor: pointer;
+            margin-bottom: 1em;
+            transition: background 0.15s;
+        }
+        button:hover { background: #525ceb; }
+        .riddle-msg {
+            margin-top: 1.3em;
+            font-size: 1.09em;
+        }
+        a {
+            display: block;
+            margin-top: 1.7em;
+            color: #4866f9;
+            text-decoration: none;
+            font-size: 1em;
+        }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="riddle-box">
+        <h2>🔎 Secret Riddle 🔎</h2>
+        <form method="post">
+            <label for="name">Enter your full name (but no middle name) to unlock the secret:</label><br>
+            <input type="text" id="name" name="name" autocomplete="off" required>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+        {% if message %}
+            <div class="riddle-msg">{{ message|safe }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
